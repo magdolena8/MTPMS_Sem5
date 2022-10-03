@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Lab_3</string>
+    <string name="title">Название</string>
+    <string name="newsreel">КИНОЖУРНАЛ</string>
+    <string-array name="genres">
+        <item>Хоррор</item>
+        <item>Комедия</item>
+        <item>Драма</item>
+        <item>Приключения</item>
+        <item>Исторический</item>
+        <item>Документальный</item>
+    </string-array>
+</resources>
