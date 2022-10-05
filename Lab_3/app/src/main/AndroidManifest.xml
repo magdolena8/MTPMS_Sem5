@@ -28,8 +28,13 @@
             android:name=".ActivitySecond"
             android:theme="@style/Theme.Design.Light.NoActionBar"
             android:launchMode="singleInstance"/>
-        <activity
-            android:name=".ActivityThird"
+        <activity android:name=".ThirdActivity"
+            android:theme="@style/Theme.Design.Light.NoActionBar"
+            android:launchMode="singleTask"/>
+        <activity android:name=".ListActivity"
+            android:theme="@style/Theme.Design.Light.NoActionBar"
+            android:launchMode="singleTask"/>
+        <activity android:name=".FilmActivity"
             android:theme="@style/Theme.Design.Light.NoActionBar"
             android:launchMode="singleTask"/>
     </application>

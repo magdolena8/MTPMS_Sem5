@@ -1,22 +1,31 @@
 package com.example.lab_3;
 
+import com.google.gson.Gson;
+
+import java.io.File;
+import java.io.FileWriter;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Film implements Serializable {
-    private String title;
-    private String director;
-    private String genre;
-    private Date viewDate;
-    private String country;
-    private String tagline;
-    private String description;
-    private boolean isLocalized;
-    private float rating;
+    public String title = null;
+    public String director = null;
+    public String genre = null;
+    public Date viewDate = null;
+    public String country = null;
+    public String tagline = null;
+    public String description = null;
+    public boolean isLocalized = true;
+    public float rating = 0;
+    public String email = null;
+    public String phone = null;
+    public String Vk = null ;
+    public String image = null;
 
     public Film(String title, String director, String genre, Date viewDate,
                 String country, String tagline, String description,
-                boolean isLocalized, float rating){
+                boolean isLocalized, float rating, String email, String phone, String Vk, String image){
         this.title = title;
         this.director = director;
         this.genre = genre;
@@ -26,6 +35,10 @@ public class Film implements Serializable {
         this.description = description;
         this.isLocalized = isLocalized;
         this.rating = rating;
+        this.email = email;
+        this.phone = phone;
+        this.Vk = Vk;
+        this.image = image;
     }
     public Film() {}
 
@@ -49,6 +62,25 @@ public class Film implements Serializable {
     public Boolean getIsLocalized(){return this.isLocalized;}
     public Float getRating(){return this.rating;}
 
+//    public static void Serialize(File dir, ArrayList<Film> filmArray){
+//        try{
+//            Gson gson = new Gson();
+//            FileWriter fw = new FileWriter(new File(dir, ".json"));
+//            String json = gson.toJson(Film.collection);
+//            gson.toJson(Film.collection, fw);
+//            fw.close();
+//        }
+//        catch(Exception ex){
+//
+//        }
+//
+//    }
+
+
+    @Override
+    public String toString() {
+        return title + "\n" + director + "\n" + phone + "\n" + email + "\n" + Vk;
+    }
 
 }
 

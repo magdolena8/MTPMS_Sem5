@@ -25,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        titleEdit = findViewById(R.id.titleEdit);
-        directorEdit = findViewById(R.id.directorEdit);
+        titleEdit = findViewById(R.id.mailEdit);
+        directorEdit = findViewById(R.id.phoneEdit);
         datePicker = findViewById(R.id.calendar);
 
         genreSpiner = findViewById(R.id.genreSpinner);
@@ -52,5 +52,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ActivitySecond.class);
         intent.putExtra("film", film);
         startActivity(intent);
+    }
+    public void listBtnClick(View view){
+        Intent listActivityIntent = new Intent(this, ListActivity.class);
+        startActivity(listActivityIntent);
     }
 }

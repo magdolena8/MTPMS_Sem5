@@ -1,6 +1,5 @@
 package com.example.lab_3;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,7 +8,6 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RatingBar;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 
@@ -61,7 +59,7 @@ public class ActivitySecond extends AppCompatActivity {
         film.setIsLocalized(localizationCheck.isChecked());
         film.setRating(ratingBar.getRating());
 
-        Intent intent = new Intent(this, ActivityThird.class);
+        Intent intent = new Intent(this, ThirdActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         intent.putExtra("film", film);
         startActivity(intent);

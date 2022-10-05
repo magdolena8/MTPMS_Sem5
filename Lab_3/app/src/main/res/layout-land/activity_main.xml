@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/directorEdit"
+        android:id="@+id/phoneEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -17,7 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.059"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleEdit" />
+        app:layout_constraintTop_toBottomOf="@+id/mailEdit" />
 
     <Spinner
         android:id="@+id/genreSpinner"
@@ -27,10 +27,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.061"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/directorEdit" />
+        app:layout_constraintTop_toBottomOf="@+id/phoneEdit" />
 
     <EditText
-        android:id="@+id/titleEdit"
+        android:id="@+id/mailEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
@@ -65,7 +65,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/nextBtn"
+        android:id="@+id/saveBtn"
         android:layout_width="218dp"
         android:layout_height="39dp"
         android:text="Далее"
