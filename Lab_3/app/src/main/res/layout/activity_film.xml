@@ -69,9 +69,9 @@
         app:layout_constraintTop_toTopOf="@+id/linearLayout" />
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/filmImageView"
+        android:layout_width="209dp"
+        android:layout_height="169dp"
         android:layout_marginTop="60dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.865"
@@ -86,7 +86,7 @@
         android:layout_marginTop="68dp"
         android:text="qweqweqwe"
         android:textSize="22dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintEnd_toStartOf="@+id/filmImageView"
         app:layout_constraintHorizontal_bias="0.253"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
@@ -98,7 +98,7 @@
         android:layout_marginTop="28dp"
         android:text="qeqwrqwr"
         android:textSize="15dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintEnd_toStartOf="@+id/filmImageView"
         app:layout_constraintHorizontal_bias="0.172"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleTW" />
@@ -110,7 +110,7 @@
         android:layout_marginTop="56dp"
         android:text="ОЦЕНКА"
         android:textSize="15dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintEnd_toStartOf="@+id/filmImageView"
         app:layout_constraintHorizontal_bias="0.172"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/directorTW" />
@@ -122,7 +122,7 @@
         android:layout_marginTop="56dp"
         android:text="1"
         android:textSize="15dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintEnd_toStartOf="@+id/filmImageView"
         app:layout_constraintHorizontal_bias="0.349"
         app:layout_constraintStart_toEndOf="@+id/textView1"
         app:layout_constraintTop_toBottomOf="@+id/directorTW" />
@@ -134,6 +134,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginBottom="220dp"
         android:text="Email"
+        android:onClick="onEmailBtnClick"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -144,6 +145,7 @@
         android:layout_marginStart="48dp"
         android:layout_marginBottom="220dp"
         android:text="VK"
+        android:onClick="onVKBtnClick"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintStart_toEndOf="@+id/button" />
 
@@ -153,6 +155,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="220dp"
         android:text="ТЕЛЕФОН"
+        android:onClick="onPhoneBtnClick"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.63"

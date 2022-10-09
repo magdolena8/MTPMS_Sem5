@@ -79,7 +79,7 @@ public class Film implements Serializable {
 
     @Override
     public String toString() {
-        return title + "\n" + director + "\n" + phone + "\n" + email + "\n" + Vk;
+        return title.toUpperCase() + "\n" + director;
     }
 
 }
