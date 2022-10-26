@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Lab_5</string>
+    <string name="title">Назавние</string>
+    <string name="description">Описание</string>
+    <string name="image">Фото</string>
+    <string name="date">Дата</string>
+    <string name="add">Добавить</string>
+    <string name="edit">Изменить</string>
+    <string name="delete">Удалить</string>
+    <string name="save">Сохранить</string>
+</resources>
