@@ -30,7 +30,7 @@ import java.util.Date;
 
 public class EventFragment extends Fragment {
     int ID;
-    String _path;
+    public String _path;
     public Event event;
     EditText titleTE, descriptionTE;
     TextView dateTW;
@@ -47,7 +47,13 @@ public class EventFragment extends Fragment {
                              Bundle savedInstanceState) {
         ID = getArguments().getInt("ID");
 //        event = (Event) getArguments().getSerializable("Event");
-        event = Event.eventsList.get(ID);
+        EventsDBHelper db = new EventsDBHelper(getActivity());
+        try {
+            event = db.getEventByID(ID);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+//        event = Event.eventsList.get(ID);
         rootView = inflater.inflate(R.layout.fragment_event, container, false);
 
         saveBtn = rootView.findViewById(R.id.saveBtn);
@@ -102,7 +108,7 @@ public class EventFragment extends Fragment {
                 editBtn.setVisibility(View.VISIBLE);
                 event.title = titleTE.getText().toString();
                 event.description = descriptionTE.getText().toString();
-                event.date = new Date(datePicker.getYear()-1900, datePicker.getMonth(), datePicker.getDayOfMonth());
+                event.date = new Date(datePicker.getYear() - 1900, datePicker.getMonth(), datePicker.getDayOfMonth());
                 event.image = _path;
                 datePicker.setVisibility(View.GONE);
                 dateTW.setVisibility(View.VISIBLE);
@@ -113,14 +119,15 @@ public class EventFragment extends Fragment {
                 dateTW.setText(simpleDateFormat.format(event.date));
 //TODO: диалог с подтверждением
                 try {
-                    Event.serializeEventsList(rootView.getContext());
+                    EventsDBHelper db = new EventsDBHelper(getContext());
+                    db.editEvent(ID, event);
+//                    Event.serializeEventsList(rootView.getContext());
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-                catch (IOException e){e.printStackTrace();}
 
             }
         });
-
-
 
 
         return rootView;

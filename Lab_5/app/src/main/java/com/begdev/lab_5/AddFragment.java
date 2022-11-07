@@ -51,6 +51,8 @@ public class AddFragment extends Fragment {
                         descriptionTE.getText().toString();
 
                 try {
+                    EventsDBHelper dbHelper = new EventsDBHelper(getActivity());
+                    dbHelper.addEvent(currentEvent);
                     if(Event.addEvent(currentEvent, getActivity().getApplicationContext())){
                         Toast toast = Toast.makeText(getActivity().getApplicationContext(),
                                 "Сохранено", Toast.LENGTH_SHORT);

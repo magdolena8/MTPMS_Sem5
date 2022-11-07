@@ -25,6 +25,7 @@ import android.widget.SearchView;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.view.MenuItemCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.lang.reflect.Array;
@@ -36,25 +37,22 @@ public class ListFragment extends Fragment {
     EventAdapter.OnEventClickListener listener;
     interface OnFragmentSendDataListener {
         void onSendData(String data);
-
     }
-    private OnFragmentSendDataListener fragmentSendDataListener;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_list, container, false);
         recyclerView = view.findViewById(R.id.list);
-
-
+//        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
 //        setHasOptionsMenu(true);
         listener = new EventAdapter.OnEventClickListener() {
             @Override
-            public void onEventClick(Event event, int position) {
+            public void onEventClick(int id) {
                 Fragment fr = new EventFragment();
                 Bundle args = new Bundle();
-                args.putInt("ID", position);
-                args.putSerializable("Event", event);
+                args.putInt("ID", id);
+//                args.putSerializable("Event", event);
                 fr.setArguments(args);
                 Log.d("List", "list item pressed");
                 if (getActivity().getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
@@ -64,7 +62,8 @@ public class ListFragment extends Fragment {
             }
         };
 
-        EventAdapter eventAdapter = new EventAdapter(getActivity().getApplicationContext(), Event.eventsList, listener);
+        EventsDBHelper helper = new EventsDBHelper(getActivity());
+        EventAdapter eventAdapter = new EventAdapter(getActivity().getApplicationContext(),helper.getAllEvents() , listener);
         recyclerView.setAdapter(eventAdapter);
         return view;
     }
@@ -80,7 +79,7 @@ public class ListFragment extends Fragment {
         MenuItem item = menu.findItem(R.id.search_mbtn);
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(item);
         ArrayList<Event> searchResults = new ArrayList<>();
-//        getMenuInflater().inflate(R.menu.main, menu);
+        getActivity().getMenuInflater().inflate(R.menu.main, menu);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
@@ -90,22 +89,16 @@ public class ListFragment extends Fragment {
             @Override
             public boolean onQueryTextChange(String s) {
                 Pattern pattern =  Pattern.compile(s);
-
                 for(Event event: Event.eventsList){
                     if(pattern.matcher(event.title).find()){
                         searchResults.add(event);
                     }
                 }
-                EventAdapter eventAdapter = new EventAdapter(getActivity().getApplicationContext(), searchResults, listener);
+                EventAdapter eventAdapter = new EventAdapter(getActivity().getApplicationContext(), null, listener);
                 recyclerView.setAdapter(eventAdapter);
                 return false;
             }
         });
         super.onCreateOptionsMenu(menu, menuInflater);
-
     }
-
-
-
-
 }

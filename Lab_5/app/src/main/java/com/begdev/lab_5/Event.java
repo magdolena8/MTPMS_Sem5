@@ -24,18 +24,21 @@ public class Event implements Serializable {
     public String description;
     public Date date;
     public String image;
+    public Boolean isChecked;
 
-    public Event (String _title, String _description, Date _date, String _image){
+    public Event (String _title, String _description, Date _date, String _image, Boolean _isChecked){
         this.title = _title;
         this.date = _date;
         this.description = _description;
         this.image = _image;
+        this.isChecked = _isChecked;
     }
     public Event (){
         this.title = null;
         this.date = null;
         this.description = null;
         this.image = null;
+        this.isChecked = false;
     }
 
     public static ArrayList<Event> getEventsList(@NonNull Context context) throws IOException {
